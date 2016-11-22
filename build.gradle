@@ -1,0 +1,42 @@
+group 'main'
+version '1.0-SNAPSHOT'
+
+buildscript {
+  ext.kotlin_version = '1.0.5'
+
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+sourceCompatibility = 1.5
+
+repositories {
+  mavenCentral()
+}
+
+sourceSets {
+  main {
+    kotlin {
+      srcDir "src/main/kotlin"
+    }
+  }
+}
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  compile "com.badlogicgames.gdx:gdx:+"
+  compile "com.badlogicgames.gdx:gdx-backend-lwjgl3:+"
+  compile "com.badlogicgames.gdx:gdx-platform:+:natives-desktop"
+  testCompile 'org.testng:testng:+'
+}
+
+test {
+  useTestNG()
+}
