@@ -2,9 +2,7 @@ package graph
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 
-class GraphRenderer {
-
-  private val shape = ShapeRenderer()
+class GraphRenderer(private val shape: ShapeRenderer) {
 
   fun render(graph: Graph) {
     graph.nodes.forEach { drawNode(it) }
